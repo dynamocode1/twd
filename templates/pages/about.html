@@ -1,0 +1,91 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block title %} About {% endblock %}
+
+{% block body %}
+<div class="container-fluid mt-5">
+	<div class="row">
+    	<div class="hero">
+  			<div class="hero-content">
+    			<h1><span style="color: purple;">Tech With Dunamix</span> - Your Gateway to Tech Excellence</h1>
+    			<p>About Us</p>
+    			
+  			</div>
+		</div>
+	</div>
+ <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Tech and coding</h1>
+        <p class="col-md-8 fs-4">We now live in a world of high level technolies where things like mails,traditional phone calls and advertisment are now out of date, we now use hi-level websites and apps ,digital marketing, if you thinks you are stuck the joins us ,<span style="color: purple;">Tech With Dunamix</span> </p>
+        <a class="btn btn-lg courses-btn" type="button" href="{% url 'courses' %}" style=""> Take Our Courses, </a>
+      </div>
+    </div>
+   <div class="row">
+   		<div class="col-md-6 mt-2">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
+          <h2>Our Vision</h2>
+          <p>We strive to create a team of tech giant accross the world, we are dedicated in delivering the right product. with our our team of develpoers led by Chidebele Dunamix you are sure to have greate success with us</p>
+          <a class="btn btn-outline-secondary" type="button" href="{% url 'register' %}" style="color: white;">Join Us</a>
+
+        </div>
+      </div>
+      <div class="col-md-6 mt-2">
+        <div class="h-100 p-5 bg-light border rounded-3">
+          <h2>Our Mission</h2>
+          <p>We  are dedicated in building a ssecured network, and team of developers with a materpiesce of web development skills in there hand</p>
+          <a class="btn btn-outline-secondary" type="button" href="{% url 'register' %}">Join Us</a>
+        </div>
+      </div>
+   </div>
+</div>
+<style>
+	.hero {
+      position: relative;
+      height: 70vh;
+      background-image: url("{% static 'images/hero_image.png' %}"); 
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-content {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(12, 10, 20, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+
+    @media(max-width:767px){
+         .hero {
+      position: relative;
+      height: 400px;
+      background-image: url("{% static 'images/hero_image.png' %}"); /* Add your background image URL here */
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    }
+	.courses-btn{
+		color:purple;
+		background-color: white;
+		border: 1px solid purple;
+	}
+	.courses-btn:hover{
+		color:white;
+		background-color: purple;
+		border: 1px solid purple;
+	}
+</style>
+{% endblock %}

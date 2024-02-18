@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home {% endblock %}
+{% block body %}
+
+<div class="container-fluid mt-5" style="overflow:hidden;">
+	<div class="row admin-nav" style="overflow: hidden;">
+		<div class="col-md-2">
+			<a href="{% url 'admin_home' %}" style="text-decoration: none;"><p><b>Admin</b></p></a>
+			
+		</div>
+		<div class="col-2">
+			<a href="{% url 'new_course' %}" class="btn" style="background-color:#29353c;color: white;">New Course</a>
+		</div>
+		<div class="col-2">
+			<a href="{% url 'all_course' %}" class="btn" style="background-color:#29353c;color: white;">All Courses</a>
+		</div>
+
+		<div class="col-2">
+
+			<a href="{% url 'new_course' %}" class="btn" style="background-color:#29353c;color: white;">All Users</a>
+		</div>
+		<div class="col-2">
+			<a href="{% url 'new_blog' %}" class="btn" style="background-color:#29353c;color: white;">New Blog</a>
+		</div>
+		<div class="col-2">
+
+			<a href="{% url 'all_blog' %}" class="btn" style="background-color:#29353c;color: white;">All Blog</a>
+		</div>
+		
+		</div>
+
+
+		<div class="row mt-5 align-content-center justify-content-center">
+		<div class="col-md-4 board-user">
+			<a>	
+				<h2 class="text-center">Users</h2>
+				<h4 class="text-center">{{users|length}}</h4>
+			</a>
+		</div>
+
+			<div class="col-md-4  board-blogs">
+			<a>		
+				<h2 class="text-center">Blogs</h2>
+				<h4 class="text-center">{{blogs|length}}</h4>
+			</a>
+		</div>
+		<div class="col-md-4  board-courses">
+			<a>
+				<h2 class="text-center">Courses</h2>
+				<h4 class="text-center">{{courses|length}}</h4>
+			</a>
+		</div>
+
+		
+
+		</div>
+
+	</div>
+
+	
+	
+</div>
+
+<style type="text/css">
+	@media(max-width:767px){
+		.col-2{
+			margin-left: 10px;
+			margin-right:5px;
+		}
+	}
+	.board-blogs{
+		height: 180px;
+		margin-left: 40px;
+		padding: 20px;
+		background-color: rgba(120, 0, 0, 0.4);
+		width: 280px;
+		opacity: 0.3px;
+		border-radius: 10px;
+
+	}
+	.board-user{
+		height: 180px;
+		margin-left: 40px;
+		padding: 20px;
+		background-color: rgba(1, 120, 0, 0.4);
+		width: 280px;
+		opacity: 0.3px;
+		border-radius: 10px;
+
+	}
+	.board-courses{
+		height: 180px;
+		margin-left: 40px;
+		padding: 20px;
+		background-color: rgba(0, 0, 120, 0.4);
+		width: 280px;
+		opacity: 0.3px;
+		border-radius: 10px;
+
+	}
+</style>
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Our Courses {% endblock %}
+{% block body %}
+
+<div class="container-fluid">
+	<div class="row">
+		<h2 style="text-align: center;">
+			Explore our Exlusive Courses
+		</h2>
+		<form method="get" action="{% url 'courses_search' %}">
+			<div class="input-group" style="width: 70%;margin-left: auto;margin-right: auto;">
+			      <input type="text" class="form-control search-input" placeholder="Search..." name = 'query'>
+			      <!-- Search button -->
+			      <div class="input-group-append">
+			        <input class="btn btn-primary search-btn" type="submit" value="Search">
+			      </div>
+			    </div>
+			
+		</form>
+	</div>
+
+	<div class="row mt-5  align-content-center">
+		{% if objects|length == 0 %}
+		<hr/>
+		<h1 style='font-family:serif;text-align: center;'>No Result </h1>
+		{% endif %}
+		{% for obj in objects %}
+			<div class="col-md-3 col-6 mt-4 p-2 ">
+			<a style="text-decoration: none;color: none;" href="{% url 'course' id=obj.id %}">
+
+				<div class="courses_container row">
+					<div style="background-color: rgba(12, 10, 0, 0.4);height: 100%;border-radius: 10px;">
+					</div>
+				</div>
+		</a>
+
+				<p style="text-align:center;font-family: serif;">{{obj.title}}</p>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+<style type="text/css">
+	.courses_container{
+		border: 1px solid purple;
+		height: 160px;
+		border-radius: 10px;
+		margin: 10px;
+    background-image: url("{% static 'images/hero_image.png' %}") ; 
+    background-size: cover;
+    background-position: center;
+
+	}
+.search-btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: purple;
+  color: white;
+  border-color: purple;
+}
+.search-btn:hover{
+	background-color: deeppink;
+	border-color: deeppink;
+}
+
+.search-input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+</style>
+{% endblock %}

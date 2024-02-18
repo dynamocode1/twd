@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}{{topic.title}}{% endblock %}
+
+
+{% block body %}
+<div class="container-fluid mt-5" style="overflow: hidden;padding: 20px;">
+	<h1 style="text-align: center;font-family: serif;color: purple;">{{course.title}}</h1>
+	<div class="row">
+
+	
+	<div class="col-md-8 topic mt-5">
+		<p style="overflow: hidden;">
+			{{topic.body|safe}}
+		</p>
+	</div>
+
+	<div class="col-md-4 mt-5">
+		<div class="topics">
+			<p style="font-family: serif;text-align: center;color: purple;font-size: 2pc;">Course Outline</p>
+				{% for obj in topics.all %}
+					<div style="margin: 5px;" class = 'outline'>
+						<a href="{% url 'course' id=id%}?topic={{obj.id}}" style="text-decoration: none;color: white;"><i class="uil-comment-alt-notes" style="margin-right: 20px"></i>{{obj.title}} </a>
+					</div>
+				{% endfor %}
+		</div>
+	</div>
+</div>
+</div>
+
+<style type="text/css">
+	.topics{
+		background-color: honeydew;
+		
+		padding: 20px;
+	}
+	.topic{
+		padding: 20px;
+		border-right: 1px solid purple;
+		border-bottom: 1px solid purple;
+
+
+	}
+	.outline{
+		background-color: purple;
+		color: white;
+		margin-bottom: 10px;
+		padding: 20px;
+	}
+</style>
+
+
+{% endblock %}

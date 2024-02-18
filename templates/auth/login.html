@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Register|Tech With Dunamix</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Orbitron&display=swap">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster&display=swap">
+  <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/icons.css' %}">
+
+
+
+  
+
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+		<div class="col-md-8" style="align-items: center;">
+			<h1 class="mb-5 mt-5" style="color:purple;">
+				Welcome To Tech With Dunamix
+			</h1>
+			<img src="{% static 'images/auth.png' %}" class="img-fluid">
+
+
+		</div>
+
+		<div class="col-md-4" style="align-items:center;">
+		<div class="center">
+		<h1 class="text-center" style="color: white;">Login</h1>
+
+			<form class="" method="post" style="margin-top: auto;margin-bottom: auto;">
+				{% csrf_token %}
+				<label form="form.email.id_for_label">Email</label>
+				{{form.email}}
+				{{form.email.errors}}
+
+				<label form="form.password.id_for_label">Password</label>
+
+				{{form.password}}
+				{{form.password.errors}}
+
+
+
+				<input type="submit" name="" value="Register" class="form-control bg-light mt-5 submit mb-5">
+				<a style="color:white;text-decoration: none;text-align: center;margin-left: auto;margin-right: auto;margin-top: 60px" href="{% url 'register' %}" class="mt-5">Don't have an account ? <span style="cursor: pointer;">Register</span></a>
+			</form>
+		</div>
+	</div>
+</div>
+</div>
+</body>
+<style type="text/css">
+	.container{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+	}
+	.center{
+		width: 400px;
+		margin:  0 auto;
+		background-color: purple;
+		padding:  20px;
+		border-radius: 10px;
+		margin-top: 140px;
+
+
+	}
+	label{
+		color: white;
+	}
+	.submit:hover{
+
+	}
+	li{
+		color: white;
+	}
+	@media(max-width:767px){
+		.col-md-8{
+			display: none;
+
+		}
+		.center{
+			margin-left: 40px;
+			margin-right: 40px;
+			width: 300px;
+		}
+	}
+	
+</style>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src=""></script>
+<script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+
+</body>
+</html>
+
+
+		

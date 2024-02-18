@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home {% endblock %}
+{% block body %}
+
+<div class="container-fluid mt-5">
+	<div class="row admin-nav" style="overflow: hidden;">
+		<div class="col-md-2">
+		<a href="{% url 'admin_home' %}" style="text-decoration: none;"><p><b>Admin</b></p></a>
+
+		</div>
+		<div class="col-2">
+			<a href="{% url 'new_course' %}" class="btn" style="background-color:#29353c;color: white;">New Course</a>
+		</div>
+		<div class="col-2">
+			<a href="{% url 'all_course' %}" class="btn" style="background-color:#29353c;color: white;">All Courses</a>
+		</div>
+
+		<div class="col-2">
+
+			<a href="{% url 'new_course' %}" class="btn" style="background-color:#29353c;color: white;">All Users</a>
+		</div>
+		<div class="col-2">
+			<a href="{% url 'new_blog' %}" class="btn" style="background-color:#29353c;color: white;">New Blog</a>
+		</div>
+		<div class="col-2">
+
+			<a href="{% url 'all_blog' %}" class="btn" style="background-color:#29353c;color: white;">All Blog</a>
+		</div>
+		</div>
+
+	<div class="mb-5" style="width: 80%;height: 680px;background-color: #238;padding: 20px;margin: auto;border-radius: 10px;color: white;">
+		<h1 style="text-align: center;color: white;bottom: 120px;">New Course</h1>
+		<form method="post" class="form-group" enctype="multipart/form-data">
+			{% csrf_token %}
+			{{form.as_p}}
+			<input type="submit" name="" class="form-control btn btn-secondary" style="width:40%;margin-right:auto;margin-left: auto" value="Continue">
+			</div>
+		</div>
+		</form>
+	</div>
+	
+</div>
+
+
+
+{% endblock %}

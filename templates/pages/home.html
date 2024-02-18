@@ -1,0 +1,118 @@
+{% extends '../base.html' %}
+{% load static %}
+{% block title %}Home {% endblock %}
+{% block body %} 
+<div class="container-fluid">
+	<div class="row">
+    	<div class="hero">
+  			<div class="hero-content">
+    			<h1><span style="color: purple;">Tech With Dunamix</span> - Your Gateway to Tech Excellence</h1>
+    			<p>We've got the skills you need to thrive in the ever-evolving tech landscape. Join us on a journey of innovation and discovery.</p>
+    			<a href="" class="btn btn-purple" style="background-color: purple;color: white;">Join Us</a>
+  			</div>
+		</div>
+	</div>
+	
+	<div class="bg-light p-5 rounded">
+    <h1>Tech And Innovations</h1>
+    <p class="lead">Welcom to Tech-with-<span style="color:purple;">Dunamix </span>Where Tech meets innovation, with our help you can learn and improve your tech and coding skills and also help improve your buisness with cutting edge information technologies</p>
+    <a class="btn " href="../components/navbar/" role="button" style="color: white;background-color: purple;">See More &raquo;</a>
+	</div>
+	<div class="row align-content-center  mt-3 me-2">
+		<h1 style="font-family: serif;color: purple;text-align: center;">Recent Blogs</h1>
+		{% for blog in blogs %}
+			<div class="col-md-3 col-6 blogs">
+				<div class="blog-image">
+					<div style="background-color:rgba(60, 0, 70, 0.8);height: 100vh;width: 100%;border-radius: 20px;display: flex;">
+						<p style="font-family:serif;margin-top: auto;margin-bottom: auto;margin-right: auto;margin-left: auto;">{{blog.title|title}}</p>
+					</div>
+					
+				</div>
+				<p class="" style="font-family:serif;margin-left: 10px">{{blog.date|timesince}} Ago
+				<a href="{% url 'read_blog' pk=blog.id%}" class="btn btn-danger" style="height: 20px;font-size: 0.9rem;padding: 1px;">Read More</a>
+				</p>
+
+			</div>
+		{% endfor %}
+		
+	</div>
+	<div class="row ceo mt-2">
+		<div class="text-center">
+		<img src="{% static 'images/ceo.png' %}" class="img-fluid mt-2" style="height:250px;border-radius: 500px;">
+		<h2 class="text-center" style="font-family:serif;">Meet Dunamix</h2>
+		<p>
+			Meet Dunamis Chidebele alternatively known as <span style="color:purple;">Dunamix, he is the CEO and founder of <span style="color:purple;">Tech With Dunamix</span> he has been a software developer for the past 2 years with experiance in technologies like Python,JavaScript,React.js , And django,he is a Tech Ethusiast
+		</p>
+	</div>
+	</div>
+	
+    </div>
+	</div>
+</div>
+<style type="text/css">
+	.ceo{
+		height: 500px;
+		background-color: rgb(236, 251, 236);
+	}
+	.hero {
+      position: relative;
+      height: 70vh;
+      background-image: url("{% static 'images/hero_image.png' %}"); 
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-content {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(12, 10, 20, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+
+    @media(max-width:767px){
+         .hero {
+      position: relative;
+      height: 400px;
+      background-image: url("{% static 'images/hero_image.png' %}"); /* Add your background image URL here */
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    }
+    .misc{
+    	background-color: purple;
+    	height: 100px;
+
+    }
+    .blog-image {
+      position: relative;
+      height: 200px;
+      background-image: url("{% static 'images/hero_image.png' %}"); 
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+    }
+    .misc-icons{
+    	font-size: 3.5rem;
+    }
+</style>
+{% endblock %}

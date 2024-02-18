@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block titile %} |Tech With Dunamis{% endblock %}</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Orbitron&display=swap">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster&display=swap">
+
+
+  
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <a class="navbar-brand" href="#" style="margin: 20px;">
+  	<h2 style="font-family: 'Lobster', cursive;">T <span style="color:red">W</span> D</h2>
+  </a>
+  
+  <!-- Toggle button for small screens -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="background-color: gray;margin-right: 30px;">
+    <span class="fas fa-bars" style=""></span>
+  </button>
+
+  <!-- Navigation links -->
+  <div class="collapse navbar-collapse" id="navbarNav" style="justify-content: flex-end">
+    <ul class="navbar-nav ml-auto" style="margin-right: 30px;margin-left: 30px;">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">User</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Coutses</a>
+      </li>
+      {% is request.user.is_authenticated}
+	      <li class="nav-item">
+	        <a class="nav-link" href="#"><i class="fas fa-user"></i> LogOut</a>
+	      </li>
+	    {% else %}
+	    <li class="nav-item">
+	        <a class="nav-link" href="#"><i class="fas fa-user"></i> Login</a>
+	      </li>
+	     {% endif %}
+    </ul>
+  </div>
+</nav>
+
+{% block body %}
+
+
+{% endblock %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src=""></script>
+</body>
+</html>

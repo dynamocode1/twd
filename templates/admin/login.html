@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Amdin Login|Tech With Dunamix</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Orbitron&display=swap">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster&display=swap">
+  <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/icons.css' %}">
+
+
+
+  
+
+</head>
+<body>
+	<div class="container">
+		<div class="center">
+		<h1 class="text-center">Admin Login</h1>
+
+			<form class="mt-5" method="post">
+				{% csrf_token %}
+				<label form="form.username.id_for_label">Username</label>
+				{{form.username}}
+				<label form="form.password.id_for_label">Username</label>
+
+				{{form.password}}
+				<input type="submit" name="" value="Login" class="form-control bg-light mt-5">
+			</form>
+		</div>
+	</div>
+</body>
+<style type="text/css">
+	.container{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+	}
+	.center{
+		height: 400px;
+		width: 400px;
+		margin:  0 auto;
+		background-color: gray;
+		padding:  20px;
+		border-radius: 10px;
+	}
+</style>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src=""></script>
+<script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+
+</body>
+</html>

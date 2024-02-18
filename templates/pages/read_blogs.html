@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {{blog.title}}{% endblock %}
+{% block body %}
+
+<div class="container-fluid " style="margin-top: 60px;">
+	<div class="row" style="margin-bottom: 50px;">
+		<h2 style="text-align: center;">
+			Explore our Exlusive Blogs
+		</h2>
+		<form method="get" action="{% url 'courses_search' %}">
+			<div class="input-group" style="width: 70%;margin-left: auto;margin-right: auto;">
+			      <input type="text" class="form-control search-input" placeholder="Search..." name = 'query'>
+			      <!-- Search button -->
+			      <div class="input-group-append">
+			        <input class="btn btn-primary search-btn" type="submit" value="Search">
+			      </div>
+			    </div>
+			
+		</form>
+	</div>
+	<div class="row">
+		<div class="col-md-9">
+			{{blog.body|safe}}			
+		</div>
+		<div class="col-md-3 recomended">
+			<h1 style="font-family: serif;text-align: center;">Recomended Blogs</h1>
+			{% for objs in r_blogs|slice:"0:3" %}
+			<a href="{% url 'read_blog' pk=objs.id %}" style="text-decoration: none;">
+
+				<div class="blogs-rtl">
+					<div style="background-color: rgba(90, 10, 0, 0.4);height: 150px;border-radius: 10px;display: flex;">
+
+					<p style="font-family:serif;color: white;margin-top: auto;margin-bottom: auto;margin-left: auto;margin-right: auto;">{{objs.title}}</p>
+					</div>
+
+				</div>
+			</a>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+<style>
+	.recomended{
+		border-left: 1px solid black;
+	}
+	.blogs-rtl{
+		height: 150px;
+		background-color: gainsboro;
+		margin-bottom: 30px;
+		margin: 10px;
+		background-image: url('{% static "images/hero_image.png" %}');
+		background-size: cover;
+		background-position: center;
+		border-radius: 10px;
+	}
+	@media(max-width:767px){
+		.recomended{
+			display: none;
+		}
+	}
+	.search-btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: purple;
+  color: white;
+  border-color: purple;
+}
+.search-btn:hover{
+	background-color: deeppink;
+	border-color: deeppink;
+}
+
+.search-input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+</style>
+{% endblock %}

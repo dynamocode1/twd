@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home {% endblock %}
+{% block body %}
+
+<div class="container-fluid mt-5">
+	<div class="row admin-nav" style="overflow: hidden;">
+		<div class="col-md-2">
+			<a href="{% url 'admin_home' %}" style="text-decoration: none;"><p><b>Admin</b></p></a>
+		</div>
+		<div class="col-2">
+			<a href="{% url 'new_course' %}" class="btn" style="background-color:#29353c;color: white;">New Course</a>
+		</div>
+		<div class="col-2">
+			<a href="{% url 'all_course' %}" class="btn" style="background-color:#29353c;color: white;">All Courses</a>
+		</div>
+
+		<div class="col-2">
+
+			<a href="{% url 'new_course' %}" class="btn" style="background-color:#29353c;color: white;">All Users</a>
+		</div>
+		<div class="col-2">
+			<a href="{% url 'new_blog' %}" class="btn" style="background-color:#29353c;color: white;">New Blog</a>
+		</div>
+		<div class="col-2">
+
+			<a href="{% url 'all_blog' %}" class="btn" style="background-color:#29353c;color: white;">All Blog</a>
+		</div>
+		</div>
+
+
+	<div class="row">
+		{% for topic in topics %}
+			
+			<div class = 'topics'>
+			<a href="" style="font-size: 1.3rem;margin-right: 450px;color: black;text-decoration: none;">{{topic.title}}</a>
+			<a href="{% url 'delete_topic' id=topic.id %}" style="font-size: 1.3rem;margin-right:10px;color: red;text-decoration: none;">Delete</a>
+			<a href="{% url 'edit_topic' topic_id=topic.id%}" style="font-size: 1.3rem;color: blue;text-decoration: none;">Edit</a>
+
+
+			</div>
+		{% endfor %}
+		
+	</div>
+	
+</div>
+<style type="text/css">
+	.topics{
+		width: 1000px;
+		background-color: #4b4b4b6f;
+		color: white;
+		margin-top: 10px;
+		margin-left: 10px;
+		padding: 20px;
+		border-radius: 10px;
+		border-block: 10px;
+	}
+</style>
+
+
+{% endblock %}

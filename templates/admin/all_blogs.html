@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home {% endblock %}
+{% block body %}
+
+<div class="container-fluid mt-5">
+	<div class="row admin-nav" style="overflow: hidden;">
+		<div class="col-md-2">
+		<a href="{% url 'admin_home' %}" style="text-decoration: none;"><p><b>Admin</b></p></a>
+
+		</div>
+		<div class="col-2">
+			<a href="{% url 'new_course' %}" class="btn" style="background-color:#29353c;color: white;">New Course</a>
+		</div>
+		<div class="col-2">
+			<a href="{% url 'all_course' %}" class="btn" style="background-color:#29353c;color: white;">All Courses</a>
+		</div>
+
+		<div class="col-2">
+
+			<a href="{% url 'new_course' %}" class="btn" style="background-color:#29353c;color: white;">All Users</a>
+		</div>
+		<div class="col-2">
+			<a href="{% url 'new_blog' %}" class="btn" style="background-color:#29353c;color: white;">New Blog</a>
+		</div>
+		<div class="col-2">
+
+			<a href="{% url 'all_blog' %}" class="btn" style="background-color:#29353c;color: white;">All Blog</a>
+		</div>
+		</div>
+
+	<div class="justify-center-content align-content-center">
+		{% for blog in blogs %}
+			<div class="courses">
+				<a style="text-decoration: none;" href=""><p style="font-family: serif;font-size: 1.3rem;margin-left: 10px">{{blog.title}}</p></a>
+				<a href="{% url 'delete_blog' id=blog.id %}" style="text-decoration:none;text-align: right;margin-left: auto;" class="btn btn-danger">Delete</a>
+				<a href="{% url 'edit_blog' id=blog.id %}" style="text-decoration:none;text-align: right;margin-left: 10px;" class="btn btn-success">Edit</a>
+			</div>
+		{% endfor %}
+	</div>
+	
+</div>
+
+<style type="text/css">
+	.courses{
+		width: 80%;
+		height: 50px;
+		background-color: #cba;
+		border-radius: 30px;
+		padding: 10px;
+		margin: 20px;
+		display: flex;
+		
+	}
+</style>
+
+{% endblock %}
