@@ -12,3 +12,4 @@ requests==2.31.0
 whitenoise==6.6.0
 mysqlclient
 gunicorn
+django_summernote
