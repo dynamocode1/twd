@@ -34,7 +34,7 @@ CLOUDINARY_STORAGE = {
 SECRET_KEY = 'django-insecure-yk93+_bg!165r8=97(tel*(4+5$=w97dq&dshnf+@gpx8hpp&n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG =True 
 
 ALLOWED_HOSTS = ['*']
 
