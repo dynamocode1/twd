@@ -36,6 +36,11 @@
 			 {% csrf_token %}
 			 {{form.as_p}}
 			 {{form.media}}
+			 {% for fields in form %}
+			 	{% for errors in field %}
+			 		{{errors}}
+			 	{% endfor %}
+			 {% endfor %}
 			 <input type="submit" name="" value="upload" class="btn btn-danger">
 			
 		</form>

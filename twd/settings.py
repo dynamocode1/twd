@@ -22,7 +22,11 @@ cloudinary.config(
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME':'dvnflgqs2',
+     'API_SECRET': 'l12W5dcvd3JvHDr7Hi-Wyx9Q17c',
+     'API_KEY':'975551641336967'
+}
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -30,13 +34,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-yk93+_bg!165r8=97(tel*(4+5$=w97dq&dshnf+@gpx8hpp&n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1','tech-with-dunamix.com','tech-with-dunamix.onrender.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 SITE_ID = 1
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -47,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'core.apps.CoreConfig',
+    'django_summernote',    
     'mezzanine',
     'ckeditor',
     'ckeditor_uploader',
@@ -66,6 +72,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
     'core.middlewares.CoreMiddleWare'
 ]
 
@@ -104,8 +112,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'verceldb',  # Your database name
         'USER': 'default',   # Your database user
-        'PASSWORD': '4kSCf6tMHFcT',  # Your database password
-        'HOST': 'ep-mute-mountain-a1rg7bs4-pooler.ap-southeast-1.aws.neon.tech',  # Your database host
+        'PASSWORD': 'JqvwUDTF68rK',  # Your database password
+        'HOST': 'ep-black-band-a4ud19am-pooler.us-east-1.aws.neon.tech',  # Your database host
         'PORT': '5432',  # Your database port
         'OPTIONS': {
             'sslmode': 'require',  # This enables SSL mode
@@ -143,7 +151,7 @@ DEVELOPMENT_MODE = False
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATCI_ROOT = 'staticfile'
+STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = ['static']
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -179,3 +187,11 @@ CKEDITOR_CONFIGS = {
         'filebrowserImageUploadUrl': '/ckeditor/upload/',  # URL for handling image uploads
     },
 }
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.google.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'dynamocode21@gmail.com'
+EMAIL_HOST_PASSWORD = '#dynamocode2006=21'
+EMAIL_USE_TLS = True
+MEDIA_ROOT = 'media'
+MEDIA_URL = '/mdeia/'

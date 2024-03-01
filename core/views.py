@@ -23,7 +23,7 @@ class About(generic.TemplateView):
 		blogs = Blog.objects.all()[:12]
 		context['blogs'] = blogs
 		return context
-class Courses(UserMixin,generic.TemplateView):
+class Courses(generic.TemplateView):
 	template_name = 'pages/courses.html'
 
 	def get_context_data(self,**kwargs):
@@ -60,7 +60,7 @@ class ReadBlog(generic.DetailView):
 		context['r_blogs'] = recommended_blogs
 		return context
 
-class CoursesSearch(UserMixin,generic.View):
+class CoursesSearch(generic.View):
 	template_name = 'pages/courses.html'
 	context = {}
 	def get(self,request,*args,**kwargs):
@@ -77,7 +77,7 @@ class CoursesSearch(UserMixin,generic.View):
 			return render(request,self.template_name,self.context)
 		return render(request,self.template_name,self.context)
 
-class LearnCourse(UserMixin,generic.View):
+class LearnCourse(generic.View):
 	template_name = 'pages/course.html'
 	context = {}
 
@@ -141,3 +141,5 @@ class Login(generic.View):
 		return render(request,self.template_name,self.context)
 		
 
+class ForgotPassword(generic.TemplateView):
+	template_name = 'forgot_password.html'

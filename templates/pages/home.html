@@ -16,14 +16,14 @@
 	<div class="bg-light p-5 rounded">
     <h1>Tech And Innovations</h1>
     <p class="lead">Welcom to Tech-with-<span style="color:purple;">Dunamix </span>Where Tech meets innovation, with our help you can learn and improve your tech and coding skills and also help improve your buisness with cutting edge information technologies</p>
-    <a class="btn " href="../components/navbar/" role="button" style="color: white;background-color: purple;">See More &raquo;</a>
+    <a class="btn " href="" role="button" style="color: white;background-color: purple;">See More &raquo;</a>
 	</div>
 	<div class="row align-content-center  mt-3 me-2">
 		<h1 style="font-family: serif;color: purple;text-align: center;">Recent Blogs</h1>
 		{% for blog in blogs %}
 			<div class="col-md-3 col-6 blogs">
-				<div class="blog-image">
-					<div style="background-color:rgba(60, 0, 70, 0.8);height: 100vh;width: 100%;border-radius: 20px;display: flex;">
+				<div class="blog-image" style="background-image: url('{{blog.image}}');">
+					<div style="background-color:rgba(60, 0, 70, 0.4);height: 100vh;width: 100%;border-radius: 20px;display: flex;">
 						<p style="font-family:serif;margin-top: auto;margin-bottom: auto;margin-right: auto;margin-left: auto;">{{blog.title|title}}</p>
 					</div>
 					
@@ -100,7 +100,6 @@
     .blog-image {
       position: relative;
       height: 200px;
-      background-image: url("{% static 'images/hero_image.png' %}"); 
       background-size: cover;
       background-position: center;
       color: #fff;

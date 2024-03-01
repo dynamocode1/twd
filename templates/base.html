@@ -44,11 +44,7 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'about' %}">About</a>
         </li>
-         {% if not request.user.is_authenticated %}
-        <li class="nav-item">
-          <b><a class="nav-link" href="{% url 'register' %}"><i class="fas fa-sign-in-alt"></i> Sign In</a></b>
-        </li>
-       {% endif %}
+        
       </ul>
       <form class="d-flex" method="get" action="{% url 'courses_search' %}">
         {% csrf_token %}
@@ -73,9 +69,8 @@
 
     <ul class="nav col-md-4 justify-content-end">
       <li class="nav-item"><a href="{% url 'home' %}" class="nav-link px-2 text-muted">Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+      <li class="nav-item"><a href="{% url 'courses' %}" class="nav-link px-2 text-muted">Courses</a></li>
+      <li class="nav-item" style=""><a href="{% url 'blogs' %}" class="nav-link px-2 text-muted">Blogs</a></li>
       <li class="nav-item"><a href="{% url 'about' %}" class="nav-link px-2 text-muted">About</a></li>
     </ul>
   </footer>
@@ -83,11 +78,12 @@
 </div>
 <style type="text/css">
   .nav-link:hover{
-    background-color: purple;
     padding: 3px;
     border-radius: 10px;
     box-shadow:  red;
+    color: purple;
   }
+
    .nav-item:hover{
     color: purple;
   }

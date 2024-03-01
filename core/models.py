@@ -4,6 +4,7 @@ import uuid
 #from mezzanine.core.fields import RichTextField
 from ckeditor.fields import RichTextField
 from django.urls import reverse_lazy
+import uuid
 class UserManager(BaseUserManager):
 	def create_user(self,email = None,password = None,**extra_field):
 		if email == None:
@@ -38,9 +39,11 @@ class User(AbstractBaseUser,PermissionsMixin):
 class CourseCategory(models.Model):
 	name = models.CharField(max_length = 120)
 class Course(models.Model):
+	id  = models.UUIDField(default = uuid.uuid4,primary_key = True)
+	
 	category = models.ForeignKey(CourseCategory,related_name = 'courses',on_delete = models.CASCADE,null = True,blank = True)
 	date = models.DateField(auto_now_add = True)
-	image = models.ImageField(upload_to = 'courses/',null = True,blank = True)
+	image = models.URLField()
 	title = models.CharField(max_length = 120)
 	description = models.TextField()
 	pub = models.BooleanField(default = False)
@@ -64,10 +67,11 @@ class Topic(models.Model):
 	pub = models.BooleanField(default = False)
 
 class Blog(models.Model):
+	id  = models.UUIDField(default = uuid.uuid4,primary_key = True)
 	title = models.CharField(max_length = 506)
 	body = RichTextField()
 	date = models.DateTimeField(auto_now_add = True)
-	image = models.ImageField(upload_to = 'blog_images',null = True,blank = True)
+	image = models.URLField(blank = True,null = True)
 
 	def __str__(self):
 		return self.title
@@ -81,3 +85,12 @@ class Admin(models.Model):
 
 	def __str__(self):
 		return self.username
+
+class PasswordResetToken(models.Model):
+	id = models.UUIDField(default = uuid.uuid4,unique = True,primary_key = True)
+	user = models.ForeignKey(User,on_delete = models.CASCADE)
+	date = models.DateField(auto_now_add = True)
+	used = models.BooleanField(default = False)
+
+	def __str__(self):
+		return self.id

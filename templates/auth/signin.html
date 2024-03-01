@@ -31,8 +31,9 @@
 		</div>
 
 		<div class="col-md-4">
+
 		<div class="center">
-		<h1 class="text-center" style="color: white;">Register</h1>
+			<p class="text-center" style="color: purple;">Sign up for TWD or <a href="{% url 'login' %}">Login</a></p>
 
 			<form class="mt-5" method="post">
 				{% csrf_token %}
@@ -64,8 +65,8 @@
 				{{form.password2}}
 				{{form.password2.errors}}
 
-				<input type="submit" name="" value="Register" class="form-control bg-light mt-4 submit">
-				<a style="color:white;text-decoration: none;text-align: center;margin-left: auto;margin-right: auto;margin-top: 20px" href="{% url 'login' %}" class="mt-5">Already have an account ? <span style="cursor: pointer;">Login</span></a>
+				<input type="submit" name="" value="Register" class="form-control mt-4 submit" style="background-color: purple;color: white;">
+				
 			</form>
 		</div>
 	</div>
@@ -82,22 +83,33 @@
 	.center{
 		width: 400px;
 		margin:  0 auto;
-		background-color: purple;
+		background-color: white;
 		padding:  20px;
 		border-radius: 10px;
 	}
 	label{
-		color: white;
+		color: purple;
 	}
 	.submit:hover{
 
 	}
+
+	.form-control{
+		border:  2px solid purple;
+	}
+
+
 	li{
 		color: white;
 	}
 	@media(max-width:767px){
 		.col-md-8{
 			display: none;
+		}
+		.center{
+			margin-left: 20px;
+			margin-right: 20px;
+			width: 360px;
 		}
 	}
 
