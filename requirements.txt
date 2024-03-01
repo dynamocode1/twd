@@ -7,6 +7,8 @@ django-classy-tags==4.1.0
 django-cloudinary-storage==0.3.0
 gunicorn==21.2.0
 Mezzanine==6.0.0
+psycopg2==2.9.9
 requests==2.31.0
 whitenoise==6.6.0
 mysqlclient
+gunicorn
